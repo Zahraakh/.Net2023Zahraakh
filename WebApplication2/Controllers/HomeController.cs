@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication2.Models;
+using CmsShoppingCart.Models;
 
-namespace WebApplication2.Controllers
+namespace CmsShoppingCart.Controllers
 {
     public class HomeController : Controller
     {
