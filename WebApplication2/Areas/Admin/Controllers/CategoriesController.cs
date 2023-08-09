@@ -14,9 +14,13 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
         {
             this.context = context;
         }
+        // GET /admin/categories
         public async Task<IActionResult> Index()
         {
             return View(await context.Categories.OrderBy(x => x.Sorting).ToListAsync());
         }
+
+        //GET /admin/categories/create
+        public IActionResult Create() => View();
     }
 }
