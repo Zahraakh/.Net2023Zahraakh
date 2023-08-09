@@ -28,6 +28,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
             return View(pagesList);
         }
+
         //GET /admin/pages/details/5
         public async Task<IActionResult> Details( int id)
         {
@@ -39,5 +40,9 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
             return View(page);
         }
+
+        //GET /admin/pages/create
+        public IActionResult Create() => View();
+        
     }
 }
