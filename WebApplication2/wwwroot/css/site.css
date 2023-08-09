@@ -71,11 +71,12 @@ body {
 }
 
 /*//////////////////////////////////////////////////////////////*/
+
 table.sorting tr:not(.home) {
     cursor: pointer;
 }
 
-.vi-state-highlight{
+.vi-state-highlight {
 
     border: 1px dashed #ccc;
 }
