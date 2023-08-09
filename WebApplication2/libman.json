@@ -5,6 +5,11 @@
     {
       "library": "ckeditor@4.22.1",
       "destination": "wwwroot/lib/ckeditor/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jqueryui@1.13.2",
+      "destination": "wwwroot/lib/jqueryui/"
     }
   ]
 }
