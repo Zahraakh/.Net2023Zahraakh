@@ -1,5 +1,6 @@
 ﻿using CmsShoppingCart.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,13 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return View(await context.Products.OrderByDescending(x => x.Id).Include(x => x.Category).ToListAsync());
         }
 
+        //GET /admin/products/create
+        public IActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(context.Categories.OrderBy(x => x.Sorting), "Id", "Name");
 
+            return View();
+        }
 
 
     }
