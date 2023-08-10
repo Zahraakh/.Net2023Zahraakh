@@ -112,6 +112,8 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             }
             return View(page);
         }
+
+
         //GET /admin/pages/delete/5
         public async Task<IActionResult> Delete(int id)
         {

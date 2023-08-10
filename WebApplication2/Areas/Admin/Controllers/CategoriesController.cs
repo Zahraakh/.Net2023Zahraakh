@@ -51,5 +51,68 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             }
             return View(category);
         }
+
+        //GET /admin/categories/edit/5
+
+        public async Task<IActionResult> Edit(int id)
+        {
+                Category category = await context.Categories.FindAsync(id);
+                if (category == null)
+                {
+                    return NotFound();
+                }
+                return View(category);
+        }
+
+        //POST /admin/categories/edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                category.Slug = category.Id == 1 ? "home" : category.Name.ToLower().Replace(" ", "-");
+                category.Sorting = 100;
+
+                var slug = await context.Pages.Where(x => x.Id != category.Id).FirstOrDefaultAsync(x => x.Slug == page.Slug);
+                if (slug != null)
+                {
+                    ModelState.AddModelError("", "The category already exists.");
+                    return View(category);
+
+                }
+
+                context.Update(category);
+                await context.SaveChangesAsync();
+
+                TempData["Success"] = "The category has been edited!";
+
+                return RedirectToAction("Edit", new { id = category.Id });
+            }
+            return View(category);
+        }
+
+        //GET /admin/categories/delete/5
+        public async Task<IActionResult> Delete(int id)
+        {
+            Category category = await context.Categories.FindAsync(id);
+
+            if (category == null)
+            {
+                TempData["Error"] = "The category does not exist!";
+            }
+            else
+            {
+                context.Categories.Remove(category);
+                await context.SaveChangesAsync();
+
+                TempData["Success"] = "The category has been deleted!";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
