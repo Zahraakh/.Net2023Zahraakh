@@ -14,7 +14,7 @@ namespace CmsShoppingCart.Infrastructure
 
             var file = value as IFormFile;
            
-            if(file != null)
+            if (file != null)
             {
                 var extension = Path.GetExtension(file.FileName);
 
@@ -29,6 +29,7 @@ namespace CmsShoppingCart.Infrastructure
                 
             }
             return ValidationResult.Success;
+
         }
 
         private string GetErrorMessage()

@@ -24,7 +24,7 @@ namespace CmsShoppingCart.Models
         [Range(1, int.MaxValue, ErrorMessage = "You must choose a category")]
         public int CategoryId { get; set; }
 
-       
+        [FileExtension]
         public string Image { get; set; }
 
 
@@ -34,7 +34,7 @@ namespace CmsShoppingCart.Models
         public virtual Category Category { get; set; }
 
         [NotMapped]
-        [FileExtension]
+        
         public IFormFile ImageUpload { get; set; }
     }
 }
