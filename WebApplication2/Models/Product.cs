@@ -8,6 +8,7 @@ namespace CmsShoppingCart.Models
     public class Product
     {
         public int Id { get; set; }
+
         [Required, MinLength(2, ErrorMessage = "Minimum length is 2")]
         public string Name { get; set; }
 
@@ -15,6 +16,7 @@ namespace CmsShoppingCart.Models
 
         [Required, MinLength(4, ErrorMessage = "Minimum length is 4")]
         public string Description { get; set; }
+
         [Column(TypeName ="decimal(18,2)")]
         public decimal Price { get; set; }
 
@@ -29,7 +31,6 @@ namespace CmsShoppingCart.Models
         // categoryid foreign key
 
         [ForeignKey("CategoryId")]
-
         public virtual Category Category { get; set; }
 
         [NotMapped]
