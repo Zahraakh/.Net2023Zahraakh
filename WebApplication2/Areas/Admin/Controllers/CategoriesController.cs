@@ -74,7 +74,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 category.Slug = category.Id == 1 ? "home" : category.Name.ToLower().Replace(" ", "-");
                 category.Sorting = 100;
 
-                var slug = await context.Pages.Where(x => x.Id != category.Id).FirstOrDefaultAsync(x => x.Slug == page.Slug);
+                var slug = await context.Pages.Where(x => x.Id != category.Id).FirstOrDefaultAsync(x => x.Slug == category.Slug);
                 if (slug != null)
                 {
                     ModelState.AddModelError("", "The category already exists.");
