@@ -21,10 +21,5 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return View();
         }
 
-        //GET /admin/products
-        public async Task<IActionResult> Index()
-        {
-            return View(await context.Categories.OrderBy(x => x.Sorting).ToListAsync());
-        }
     }
 }
