@@ -18,9 +18,10 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
         private readonly CmsShoppingCartContext context;
         private readonly IWebHostEnvironment webHostEnvironment;
-        public ProductsController(CmsShoppingCartContext context)
+        public ProductsController(CmsShoppingCartContext context, IWebHostEnvironment webHostEnvironment)
         {
             this.context = context;
+            this.webHostEnvironment = webHostEnvironment;
         }
         // GET /admin/products
         public async Task<IActionResult> Index()
