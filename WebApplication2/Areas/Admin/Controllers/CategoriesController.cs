@@ -112,7 +112,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        //POST /admin/categories/reorder
+        //POST /admin/pages/categories
         [HttpPost]
         public async Task<IActionResult> Reorder(int[] id)
         {
@@ -126,8 +126,6 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 await context.SaveChangesAsync();
                 count++;
             }
-
-
             return Ok();
         }
 
