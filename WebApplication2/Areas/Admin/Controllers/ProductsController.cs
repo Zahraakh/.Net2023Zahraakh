@@ -1,0 +1,30 @@
+﻿using CmsShoppingCart.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CmsShoppingCart.Areas.Admin.Controllers
+{
+    [Area("Admin")]
+    public class ProductsController : Controller
+    {
+
+        private readonly CmsShoppingCartContext context;
+        public ProductsController(CmsShoppingCartContext context)
+        {
+            this.context = context;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        //GET /admin/products
+        public async Task<IActionResult> Index()
+        {
+            return View(await context.Categories.OrderBy(x => x.Sorting).ToListAsync());
+        }
+    }
+}
