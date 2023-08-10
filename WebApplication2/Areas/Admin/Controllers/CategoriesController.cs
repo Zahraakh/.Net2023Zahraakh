@@ -1,4 +1,5 @@
 ﻿using CmsShoppingCart.Infrastructure;
+using CmsShoppingCart.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -22,5 +23,33 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
         //GET /admin/categories/create
         public IActionResult Create() => View();
+
+        //POST /admin/categories/create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                category.Slug = category.Name.ToLower().Replace(" ", "-");
+                category.Sorting = 100;
+
+                var slug = await context.Categories.FirstOrDefaultAsync(x => x.Slug == category.Slug);
+                if (slug != null)
+                {
+                    ModelState.AddModelError("", "The category already exists.");
+                    return View(category);
+
+                }
+
+                context.Add(category);
+                await context.SaveChangesAsync();
+
+                TempData["Success"] = "The category has been added!";
+
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
     }
 }
