@@ -13,7 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
+            </th>
+            <th>
+                Slug
             </th>
             
             <th></th>
@@ -24,7 +27,10 @@
         <tr>
             
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @item.Name
+            </td>
+            <td>
+                @item.Slug
             </td>
            
             <td>
