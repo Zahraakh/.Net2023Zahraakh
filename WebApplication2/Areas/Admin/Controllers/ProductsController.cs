@@ -151,7 +151,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     }
 
                     string imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
-                    string filePath = Path.Combine(uploadsDir, imageName);
+                    string filePath = System.IO.Path.Combine(uploadsDir, imageName);
                     FileStream fs = new FileStream(filePath, FileMode.Create);
                     await product.ImageUpload.CopyToAsync(fs);
                     fs.Close();
