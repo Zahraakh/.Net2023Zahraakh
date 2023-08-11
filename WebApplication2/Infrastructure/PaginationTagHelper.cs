@@ -93,7 +93,10 @@ namespace CmsShoppingCart.Infrastructure
         private void InitPaginationHtml(StringBuilder content)
         {
             content.Append(" <ul class='pagination'>");
-            content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}/1'>{PageFirst}</a></li>");
+            if (PageNumber != 1)
+            {
+                content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}/1'>{PageFirst}</a></li>");
+            }
         }
 
         private void InitDefaults()
