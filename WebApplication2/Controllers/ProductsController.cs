@@ -37,7 +37,7 @@ namespace CmsShoppingCart.Controllers
 
             if (category== null)
             {
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             int pageSize = 6;
             var products = context.Products.OrderByDescending(x => x.Id)
