@@ -27,7 +27,13 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int p =1)
         {
             int pageSize = 6;
-            var products = context.Products.OrderByDescending(x => x.Id).Include(x => x.Category).Skip((p - 1)* pageSize).Take(pageSize);   
+            var products = context.Products.OrderByDescending(x => x.Id).Include(x => x.Category).Skip((p - 1)* pageSize).Take(pageSize);
+
+
+            ViewBag.PageNumber = p;
+            ViewBag.PageRange = pageSize;
+            ViewBag.TotalPages = (int)Math.Ceiling((decimal)context.Products.Count() / pageSize);
+            
             return View(await products.ToListAsync());
         }
 
