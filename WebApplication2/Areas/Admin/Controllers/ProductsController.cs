@@ -149,6 +149,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
+
                     string imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
                     string filePath = Path.Combine(uploadsDir, imageName);
                     FileStream fs = new FileStream(filePath, FileMode.Create);
