@@ -60,7 +60,7 @@ namespace CmsShoppingCart.Infrastructure
                     continue;
                 }
                 var active = currentPage == PageNumber ? "active" : "";
-                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?p={currentPage}'>{currentPage}</a></li>");
             }
         }
 
@@ -73,7 +73,7 @@ namespace CmsShoppingCart.Infrastructure
                     continue;
                 }
                 var active = currentPage == PageNumber ? "active" : "";
-                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?p={currentPage}'>{currentPage}</a></li>");
             }
         }
 
@@ -86,7 +86,7 @@ namespace CmsShoppingCart.Infrastructure
                     continue;
                 }
                 var active = currentPage == PageNumber ? "active" : "";
-                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?p={currentPage}'>{currentPage}</a></li>");
             }
         }
 
