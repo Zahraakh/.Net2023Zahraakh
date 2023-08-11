@@ -143,7 +143,6 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     if(!string.Equals(product.Image , "noimage.png"))
                     {
                         string oldImagePath = Path.Combine(uploadsDir, product.Image);
-
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
@@ -151,7 +150,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     }
 
                     string imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
-                    string filePath = System.IO.Path.Combine(uploadsDir, imageName);
+                    string filePath = Path.Combine(uploadsDir, imageName);
                     FileStream fs = new FileStream(filePath, FileMode.Create);
                     await product.ImageUpload.CopyToAsync(fs);
                     fs.Close();
