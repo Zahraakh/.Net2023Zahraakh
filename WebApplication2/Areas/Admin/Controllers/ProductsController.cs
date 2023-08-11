@@ -37,6 +37,18 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return View(await products.ToListAsync());
         }
 
+        //GET /admin/products/details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            Product product = await context.Products.Include(x => x.Category).FirstOrDefaultAsync(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
+
         //GET /admin/products/create
         public IActionResult Create()
         {
@@ -88,17 +100,21 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return View(product);
         }
 
-        //GET /admin/products/details/5
-        public async Task<IActionResult> Details(int id)
+        //GET /admin/products/edit/5
+        public async Task<IActionResult> Edit(int id)
         {
-            Product product = await context.Products.Include(x => x.Category).FirstOrDefaultAsync(x => x.Id == id);
+            Product product = await context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
             }
 
+            ViewBag.CategoryId = new SelectList(context.Categories.OrderBy(x => x.Sorting), "Id", "Name" ,product.CategoryId);
+
             return View(product);
         }
+
+
 
 
 
