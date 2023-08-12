@@ -48,7 +48,7 @@ namespace CmsShoppingCart.Controllers
 
             }
 
-            HttpContext.Session.SetJson("cart", cart);
+            HttpContext.Session.SetJson("Cart", cart);
 
             return RedirectToAction("Index");
             
