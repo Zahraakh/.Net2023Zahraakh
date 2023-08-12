@@ -22,15 +22,15 @@
         @foreach(var item in Model.CartItems)
         {
             <tr>
-                <td>@.item.ProductName</td>
-                <td>@.itemQuantity</td>
+                <td>@item.ProductName</td>
+                <td>@itemQuantity</td>
                 <td>
                     <a asp-action="Add" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">+</a>
                     <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">-</a>
                     <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Remove</a>
 
                 </td>
-                <td>@.item.Price.ToString("C2")</td>
+                <td>@item.Price.ToString("C2")</td>
                 <td>@Model.CartItems.Where(x => x.ProductId).Sum(x => x.Quantity * Price).ToString("C2")</td>
 
             </tr>
