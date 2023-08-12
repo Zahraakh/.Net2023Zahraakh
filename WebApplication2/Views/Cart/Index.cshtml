@@ -36,6 +36,15 @@
             </tr>
 
         }
+
+        <tr>
+            <td class="text-right" colspan="4">Grand Total:@Model.GrandTotal.ToString("C2")
+            </td>
+        </tr>
+        <td class="text-right" colspan="4">
+           <a asp-action="Clear" class="bn btn-danger">Clear Cart</a>
+            <a href="#" class="bn btn-primary">Checkout</a>
+        </td>
     </table>
 }
 else
