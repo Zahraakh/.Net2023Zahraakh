@@ -49,9 +49,10 @@ namespace CmsShoppingCart.Controllers
             }
 
             HttpContext.Session.SetJson("Cart", cart);
+            if (HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
+               return RedirectToAction("Index");
 
-            return RedirectToAction("Index");
-            
+            return ViewComponent("SmallCart");
         }
 
         //GET / cart/decrease/5
