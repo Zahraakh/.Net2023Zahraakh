@@ -10,7 +10,12 @@
 {
     <h1>Cart Overview</h1>
 
-    <table class="table">
+    <div class="CartWrapper" >
+        <div class="cartbg">
+            <h3 class="text-center">Redirecting you to paypal...</h3>
+            <img src="~/images/ajax-loader.gif" />
+        </div>
+     <table class="table">
         <tr>
             <th>Product</th>
             <th>Quantity</th>
@@ -31,8 +36,7 @@
                     <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Remove</a>
                 </td>
                 <td>@item.Price.ToString("C2")</td>
-                <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price)
-                    .ToString("C2")</td>
+                <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
 
             </tr>
 
@@ -48,7 +52,8 @@
                 <a href="#" class="btn btn-primary">Checkout</a>
            </td>
         </tr>
-    </table>
+     </table>
+    </div>
 }
 else
 {
