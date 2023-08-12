@@ -4,6 +4,7 @@ using CmsShoppingCart.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CmsShoppingCart.Controllers
 {
@@ -26,6 +27,31 @@ namespace CmsShoppingCart.Controllers
                 GrandTotal = cart.Sum(x => x.Price * x.Quantity)
         };
             return View( cartVM);
+        }
+
+        //GET / cart/add/5
+        public async Task<ActionResult> Add(int id)
+        {
+            Product product = await context.Products.FindAsync(id);
+
+            List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+
+            CartItem cartItem = cart.Where(x => x.ProductId == id).FirstOrDefault();
+
+             if (cartItem == null)
+             {
+                cart.Add(new CartItem(product)); 
+             }
+            else
+            {
+                cartItem.Quantity += 1;
+
+            }
+
+            HttpContext.Session.SetJson("cart", cart);
+
+            return RedirectToAction("Index");
+            
         }
     }
 }
