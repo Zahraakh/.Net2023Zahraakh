@@ -110,5 +110,15 @@ namespace CmsShoppingCart.Controllers
             return RedirectToAction("Index");
 
         }
+
+
+        //GET / cart/Clear
+        public IActionResult Clear()
+        {
+           HttpContext.Session.Remove("Cart");
+
+            return RedirectToAction("Index");
+
+        }
     }
 }
