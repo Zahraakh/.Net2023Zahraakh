@@ -48,7 +48,7 @@
     <script>
         $(function() {
 
-            $("a.addToCart").click(function(e)){
+            $("a.addToCart").click(function(e){
                 e.preventDefault();
 
                 let ajaxDiv = $(this).parent().parent().find("div.ajaxbg");
@@ -59,8 +59,8 @@
                     $("div.smallcart").html(data);
                     ajaxDiv.find("img").addClass("d-none");
                     ajaxDiv.find("p").removeClass("d-none");
-                    setTimeout(() =>{
-                        ajaxDiv.animate({opacity:0, function(){
+                    setTimeout(() => {
+                        ajaxDiv.animate({opacity:0{}, function(){
                             $(this).addClass("d-none").fadeTo(.1 , 1);
                             $(this).find("img").removeClass("d-none");
                             $(this).find("p").addClass("d-none");
