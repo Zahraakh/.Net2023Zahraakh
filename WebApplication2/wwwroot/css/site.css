@@ -87,7 +87,15 @@ div.ajaxbg{
     position: absolute;
     top: 0;
     left:0;
-    width: 50%;
+    width: 100%;
     height: 100%;
     z-index:1;
+}
+
+div.ajaxbg > img {
+    position: absolute;
+    top: 20;
+    left: 50;
+    transform:translatex(-50%)
+    z-index: 2;
 }
