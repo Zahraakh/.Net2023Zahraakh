@@ -136,7 +136,7 @@ namespace CmsShoppingCart.Controllers
 
                 IdentityResult result = await userManager.UpdateAsync(appUser);
                 if (result.Succeeded)
-                    return Redirect("/");
+                    TempData["Success"] = "Your information has been edited!";
 
             }
             return View();
