@@ -53,7 +53,6 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
 
         //GET /admin/roles/edit/5
-        
         public async Task<IActionResult> Edit(string id)
         {
             IdentityRole role = await roleManager.FindByIdAsync(id);
@@ -73,6 +72,30 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 Members = members,
                 NonMembers=nonmembers
             }) ;
+        }
+
+
+        //POST /admin/roles/edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(RoleEdit roleEdit)
+        {
+            IdentityResult result;
+
+            foreach (string userId in roleEdit.AddIds ?? new string[] {})
+            {
+                AppUser user = await userManager.FindByIdAsync(userId);
+                result = await userManager.AddToRoleAsync(user, roleEdit.RoleName);
+               
+            }
+
+            foreach (string userId in roleEdit.DeleteIds ?? new string[] { })
+            {
+                AppUser user = await userManager.FindByIdAsync(userId);
+                result = await userManager.RemoveFromRoleAsync(user, roleEdit.RoleName);
+
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
 
