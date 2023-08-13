@@ -10,8 +10,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
         private readonly UserManager<AppUser> userManager;
 
-        public UsersController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
-            IPasswordHasher<AppUser> passwordHasher)
+        public UsersController(UserManager<AppUser> userManager)
         {
             this.userManager = userManager;
 
