@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CmsShoppingCart.Controllers
+namespace CmsShoppingCart.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class UsersController : Controller
