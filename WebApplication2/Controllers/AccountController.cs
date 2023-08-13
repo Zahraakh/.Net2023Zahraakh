@@ -16,7 +16,8 @@ namespace CmsShoppingCart.Controllers
         private IPasswordHasher<AppUser> passwordHasher;
 
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IPasswordHasher<AppUser> passwordHasher)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, 
+            IPasswordHasher<AppUser> passwordHasher)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
