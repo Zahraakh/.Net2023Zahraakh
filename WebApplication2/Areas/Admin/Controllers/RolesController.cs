@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CmsShoppingCart.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class RolesController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
