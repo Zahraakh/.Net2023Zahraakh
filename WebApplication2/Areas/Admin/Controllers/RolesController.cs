@@ -1,6 +1,8 @@
 ﻿using CmsShoppingCart.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace CmsShoppingCart.Areas.Admin.Controllers
 {
@@ -20,6 +22,25 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
         //GET /admin/roles/create
         public IActionResult Create() => View();
+
+        //POST /admin/roles/create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([MinLength(2) , Required] string name)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityResult result = await roleManager.CreateAsync(new IdentityRole(name));
+                if (result.Succeeded)
+                    return RedirectToAction("Index");
+                else
+                    foreach (IdentityError error in result.Errors) ModelState.AddModelError("", error.Description);
+              
+            }
+
+            ModelState.AddModelError("", "Minimum length is 2");
+            return View(name);
+        }
 
 
     }
