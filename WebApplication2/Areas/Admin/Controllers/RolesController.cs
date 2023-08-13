@@ -32,14 +32,22 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             {
                 IdentityResult result = await roleManager.CreateAsync(new IdentityRole(name));
                 if (result.Succeeded)
+                {
+                    TempData["Success"] = "The role has been created!";
                     return RedirectToAction("Index");
+
+                }
                 else
+                {
                     foreach (IdentityError error in result.Errors) ModelState.AddModelError("", error.Description);
+
+
+                }
               
             }
 
             ModelState.AddModelError("", "Minimum length is 2");
-            return View(name);
+            return View();
         }
 
 
