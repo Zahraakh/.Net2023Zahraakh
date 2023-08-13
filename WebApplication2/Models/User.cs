@@ -5,6 +5,7 @@ namespace CmsShoppingCart.Models
     public class User
     {
         [Required, MinLength(2, ErrorMessage = "Minimum length is 2")]
+        [Display(Name ="UserName")]
         public string UserName { get; set; }
 
         [Required, EmailAddress]
@@ -14,7 +15,7 @@ namespace CmsShoppingCart.Models
 
         public string Password { get; set; }
 
-         User(){ }
+         public User(){ }
 
         public User(AppUser appUser)
         {
