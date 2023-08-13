@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace CmsShoppingCart.Controllers
 {
     [Area("Admin")]
-    public class UserController : Controller
+    public class UsersController : Controller
     {
 
         private readonly UserManager<AppUser> userManager;
 
-        public UserController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+        public UsersController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
             IPasswordHasher<AppUser> passwordHasher)
         {
             this.userManager = userManager;
