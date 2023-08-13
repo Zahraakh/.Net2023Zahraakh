@@ -89,7 +89,7 @@ namespace CmsShoppingCart.Controllers
 
                 }
 
-                ModelState.AddModelError("", "Login failed, wrong credentials.")
+                ModelState.AddModelError("", "Login failed, wrong credentials.");
 
             }
             return View(login);
