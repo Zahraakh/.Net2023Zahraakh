@@ -15,7 +15,12 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             this.roleManager = roleManager;
             this.userManager = userManager;
         }
+        //GET /admin/roles
         public IActionResult Index() => View(roleManager.Roles);
-        
+
+        //GET /admin/roles/create
+        public IActionResult Create() => View();
+
+
     }
 }
