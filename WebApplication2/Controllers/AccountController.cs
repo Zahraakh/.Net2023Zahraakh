@@ -13,12 +13,14 @@ namespace CmsShoppingCart.Controllers
     {
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
+        private IPasswordHasher<AppUser> passwordHasher;
 
 
-        public AccountController(UserManager<AppUser> userManager , SignInManager<AppUser> signInManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IPasswordHasher<AppUser> passwordHasher)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.passwordHasher = passwordHasher;
         }
 
 
@@ -40,14 +42,14 @@ namespace CmsShoppingCart.Controllers
                     Email = user.Email
                 };
 
-                IdentityResult result = await userManager.CreateAsync(appUser , user.Password);
+                IdentityResult result = await userManager.CreateAsync(appUser, user.Password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Login");
                 }
                 else
                 {
-                    foreach(IdentityError error in result.Errors)
+                    foreach (IdentityError error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
                     }
@@ -78,7 +80,7 @@ namespace CmsShoppingCart.Controllers
             if (ModelState.IsValid)
             {
                 AppUser appUser = await userManager.FindByEmailAsync(login.Email);
-                if(appUser != null)
+                if (appUser != null)
                 {
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync
                         (appUser, login.Password, false, false);
@@ -103,5 +105,41 @@ namespace CmsShoppingCart.Controllers
             return Redirect("/");
         }
 
+        //GET /account/edit
+        [AllowAnonymous]
+        public async Task<IActionResult> Edit()
+        {
+            AppUser appUser = await userManager.FindByNameAsync(User.Identity.Name);
+            UserEdit user = new UserEdit(appUser);
+
+            return View(user);
+        }
+
+        //POST /account/edit
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(UserEdit user)
+        {
+            AppUser appUser = await userManager.FindByNameAsync(User.Identity.Name);
+
+
+            if (ModelState.IsValid)
+            {
+                appUser.Email = user.Email;
+
+                if (user.Password != null)
+                {
+                    appUser.PasswordHash = passwordHasher.HashPassword(appUser, user.Password);
+                }
+
+                IdentityResult result = await userManager.UpdateAsync(appUser);
+                if (result.Succeeded)
+                    return Redirect("/");
+
+            }
+            return View();
+
+        }
+      }
     }
-}
