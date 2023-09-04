@@ -24,7 +24,7 @@ namespace CmsShoppingCart.Controllers
             this.passwordHasher = passwordHasher;
         }
 
-
+        //l get mn l database lal views l get bs view bt2ra l url w btaardu ka view
         //GET /account/register
         [AllowAnonymous]
         public IActionResult Register() => View();

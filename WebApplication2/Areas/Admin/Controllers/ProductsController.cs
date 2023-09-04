@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace CmsShoppingCart.Areas.Admin.Controllers
 {
     [Authorize(Roles = "admin")]
@@ -19,6 +20,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductsController : Controller
     {
+       
 
         private readonly CmsShoppingCartContext context;
         private readonly IWebHostEnvironment webHostEnvironment;
@@ -27,6 +29,8 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             this.context = context;
             this.webHostEnvironment = webHostEnvironment;
         }
+
+        
         // GET /admin/products
         public async Task<IActionResult> Index(int p =1)
         {
@@ -65,7 +69,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
         //POST /admin/products/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Product product )
         {
             ViewBag.CategoryId = new SelectList(context.Categories.OrderBy(x => x.Sorting), "Id", "Name");
 
@@ -200,6 +204,25 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
+        
+
+
+        /*  public async Task<IActionResult> SearchIndex(String SearchString)
+          {
+              //var ficOnly = context.Products.Where(b => b.Name.Equals(b.Name));
+              //return View(ficOnly.ToListAsync());
+
+              ViewData["CurrentFilter"] = SearchString;
+              var product = from b in context.Products
+                            select b;
+              if (!String.IsNullOrEmpty(SearchString))
+              {
+                  product = product.Where(b => b.Name.Contains(SearchString));
+              }
+              return View(product);
+
+          }*/
 
     }
 }
