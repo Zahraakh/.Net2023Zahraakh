@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 
-var builder = WebApplication.CreateBuilder(args);
+ /* var builder = WebApplication.CreateBuilder(args);
  
 
 builder.Services.AddMemoryCache();
@@ -83,7 +83,7 @@ app.MapControllerRoute(
     defaults: new { controller = "Pages", action = "Page" }
     );*/
 
-app.MapControllerRoute(
+/* app.MapControllerRoute(
                       "products",
                    
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
@@ -97,4 +97,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.Run(); */

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System.Threading.Tasks;
 
-namespace CmsShoppingCart.Controllers
+namespace Front.Controllers
 {
     [Authorize]
 
