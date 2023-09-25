@@ -1,4 +1,6 @@
-﻿namespace CmsShoppingCart.Models
+﻿using Common.Models;
+
+namespace Common.Models
 {
     public class CartItem
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CmsShoppingCart.Models
+namespace Common.Models
 {
     public class Login
     {

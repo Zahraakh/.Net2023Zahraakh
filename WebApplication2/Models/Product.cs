@@ -1,5 +1,6 @@
 ﻿using CmsShoppingCart.Infrastructure;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace CmsShoppingCart.Models
         [FileExtension]
         public IFormFile ImageUpload { get; set; }
 
-        
-
+        [ForeignKey("CategoryId")]
+        public ICollection<Discount> Discounts { get; set; }
     }
 }

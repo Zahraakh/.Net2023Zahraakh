@@ -1,11 +1,13 @@
-﻿using CmsShoppingCart.Infrastructure;
+﻿
+using Common.Infrastructure;
+using Common.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace CmsShoppingCart.Models
+namespace Common.Models
 {
     public class SeedData
     {

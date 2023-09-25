@@ -1,18 +1,19 @@
 ﻿
-using CmsShoppingCart.Infrastructure;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.EntityFrameworkCore;
-using CmsShoppingCart.Models;
+
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Builder;
+using Common.Infrastructure;
+using Common.Models;
 
-namespace CmsShoppingCart.Controllers
+namespace Front.Controllers
 {
     [Authorize]
     public class ProductsController : Controller

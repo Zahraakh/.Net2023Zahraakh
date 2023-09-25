@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 using Newtonsoft.Json;
 
-namespace CmsShoppingCart.Infrastructure
+namespace Common.Infrastructure
 {
     public static class SessionExtensions
     {

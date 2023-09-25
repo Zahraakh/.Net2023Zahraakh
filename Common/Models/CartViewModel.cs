@@ -1,7 +1,7 @@
-﻿using CmsShoppingCart.Models;
+﻿
 using System.Collections.Generic;
 
-namespace CmsShoppingCart.Models
+namespace Common.Models
 {
     public class CartViewModel
     {

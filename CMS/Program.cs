@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using CmsShoppingCart.Infrastructure;
-using CmsShoppingCart.Models;
+using Common.Infrastructure;
+using Common.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;

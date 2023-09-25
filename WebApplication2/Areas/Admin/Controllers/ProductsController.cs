@@ -205,65 +205,13 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        
 
-        // GET: Product/AddDiscount/5 (Display the form to add a discount to a product)
-        public ActionResult AddDiscount(int id)
-        {
-            // Retrieve the product by its ID from the database
-            var product = context.Products.Find(id);
 
-            if (product == null)
-            {
-                return HttpNotFound(); // Handle the case where the product doesn't exist.
-            }
 
-            // Create a new DiscountViewModel to hold discount information.
-            var discountViewModel = new DiscountViewModel
-            {
-                ProductId = product.Id,
-                ProductName = product.Name
-            };
 
-            return View(discountViewModel);
-        }
 
-        // POST: Product/AddDiscount/5 (Handle the form submission to add a discount)
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddDiscount(DiscountViewModel discountViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                // Create a new Discount model instance from the view model.
-                var discount = new Discount
-                {
-                    DiscountCode = discountViewModel.DiscountCode,
-                    Percentage = discountViewModel.Percentage,
-                    StartDate = discountViewModel.StartDate,
-                    EndDate = discountViewModel.EndDate
-                };
-
-                // Find the product by its ID from the database.
-                var product = context.Products.Find(discountViewModel.ProductId);
-
-                if (product != null)
-                {
-                    // Add the discount to the product's Discounts collection.
-                    product.Discounts.Add(discount);
-
-                    // Save changes to the database.
-                    context.SaveChanges();
-
-                    return RedirectToAction("Details", "Product", new { id = discountViewModel.ProductId });
-                }
-            }
-
-            // If ModelState is not valid or there's an error, return to the form.
-            return View(discountViewModel);
-        }
-
-       
     }
 
 }
-}
+

@@ -1,9 +1,10 @@
-﻿using CmsShoppingCart.Models;
+﻿
+using Common.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace CmsShoppingCart.Infrastructure
+namespace Common.Infrastructure
 {
     public class CmsShoppingCartContext : IdentityDbContext<AppUser>
     {

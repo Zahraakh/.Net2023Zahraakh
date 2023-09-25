@@ -1,12 +1,13 @@
-﻿using CmsShoppingCart.Infrastructure;
-using CmsShoppingCart.Migrations;
-using CmsShoppingCart.Models;
+﻿
+
+using Common.Infrastructure;
+using Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CmsShoppingCart.Controllers
+namespace Front.Controllers
 {
     public class CartController : Controller
     {

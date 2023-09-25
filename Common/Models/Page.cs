@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CmsShoppingCart.Models
+namespace Common.Models
 {
     public class Page
     {

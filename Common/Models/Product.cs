@@ -1,10 +1,10 @@
-﻿using CmsShoppingCart.Infrastructure;
+﻿using Common.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace CmsShoppingCart.Models
+namespace Common.Models
 {
     public class Product
     {

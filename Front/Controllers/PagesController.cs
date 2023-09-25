@@ -1,12 +1,12 @@
-﻿using CmsShoppingCart.Infrastructure;
-using CmsShoppingCart.Models;
+﻿
+using Common.Infrastructure;
+using Common.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CmsShoppingCart.Controllers
+namespace Front.Controllers
 {
     public class PagesController : Controller
     {

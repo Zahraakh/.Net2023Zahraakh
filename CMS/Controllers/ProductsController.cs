@@ -1,5 +1,6 @@
-﻿using CmsShoppingCart.Infrastructure;
-using CmsShoppingCart.Models;
+﻿
+using Common.Infrastructure;
+using Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace CmsShoppingCart.Areas.Admin.Controllers
+namespace CMS.Controllers
 {
     [Authorize(Roles = "admin")]
 
@@ -205,7 +206,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
+        /*
         // GET: Product/AddDiscount/5 (Display the form to add a discount to a product)
         public ActionResult AddDiscount(int id)
         {
@@ -225,10 +226,10 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             };
 
             return View(discountViewModel);
-        }
+        }*/
 
         // POST: Product/AddDiscount/5 (Handle the form submission to add a discount)
-        [HttpPost]
+       /* [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddDiscount(DiscountViewModel discountViewModel)
         {
@@ -260,10 +261,10 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
             // If ModelState is not valid or there's an error, return to the form.
             return View(discountViewModel);
-        }
+        }*/
 
        
     }
 
 }
-}
+
