@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit Roles";
 }
 
-<h1>Edit Roles</h1>
+<h1 style="color:white;font-size:40px;text-align:center; font-family: Segoe Print" sans-serif;" >Edit Roles</h1>
 
 <div class="row">
     <div class="col-md-10">
@@ -14,7 +14,7 @@
             <input type="hidden" name="RoleName" value="@Model.Role.Name" />
             <div class="row">
                 <div class="col-6">
-                    <h2> Add users to <span class="badge badge-primary">@Model.Role.Name</span>role</h2>
+                    <h2 style="color:white;font-size:30px;text-align:center; font-family: Segoe Print" sans-serif;" > Add users to <span style="border:none; background:linear-gradient(45deg,#f2ff97, #ff6f3c);border-radius:70px;text-align:center;font-size:18px;cursor:pointer;color:white;font-family: Segoe Print" sans-serif;" class="badge badge-primary">@Model.Role.Name</span>role</h2>
                     <table class="table table-bordered">
                         @if (Model.NonMembers.Count() == 0)
                         {
@@ -24,9 +24,9 @@
                             foreach(AppUser user in Model.NonMembers)
                             {
                                 <tr>
-                                    <td>@user.UserName</td>
+                                    <td style="color:white;padding:30px;width:40px;">@user.UserName</td>
                                     <td>
-                                        <input type="checkbox" value="@user.Id" name="AddIds"  />
+                                        <input  type="checkbox" value="@user.Id" name="AddIds"  />
                                     </td>
                                 </tr>
                             }
@@ -37,7 +37,7 @@
 
 
                 <div class="col-6">
-                    <h2> Remove users from <span class="badge badge-primary">@Model.Role.Name</span> role</h2>
+                    <h2 style="color:white;font-size:30px;text-align:center; font-family: Segoe Print" sans-serif;"> Remove users from <span style="border:none; background:linear-gradient(45deg,#f2ff97, #ff6f3c);border-radius:70px;text-align:center;font-size:18px;cursor:pointer;color:white;font-family: Segoe Print" sans-serif;" class="badge badge-primary">@Model.Role.Name</span> role</h2>
                     <table class="table table-bordered">
                         @if (Model.Members.Count() == 0)
                         {
@@ -49,9 +49,9 @@
                             foreach (AppUser user in Model.Members)
                             {
                                 <tr>
-                                    <td>@user.UserName</td>
+                                    <td style="color:white;padding:30px;">@user.UserName</td>
                                     <td>
-                                        <input type="checkbox" value="@user.Id" name="DeleteIds" />
+                                        <input style="color:white;"  type="checkbox" value="@user.Id" name="DeleteIds" />
                                     </td>
                                 </tr>
                             }
@@ -63,7 +63,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input style="border:none;padding:10px 10px;font-size:18px;height:50%;background:linear-gradient(45deg,#f2ff97, #9ed79a);color:#f59159;border-radius:100px;text-align:center;width:30%; margin:25px;cursor:point;font-family: Segoe Print" sans-serif;" type="submit" value="Save" class="btn btn-primary" />
 
             </div>
 
@@ -71,7 +71,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div  style="float:right; border:none;font-size:20px;width:20%;text-align:center;text-transform:uppercase;cursor:pointer ;font-family: Segoe Print" sans-serif;">
+    <a  style="color:white" asp-action="Index">Back to List</a>
 </div>
 

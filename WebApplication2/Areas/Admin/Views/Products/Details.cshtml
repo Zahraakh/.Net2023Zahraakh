@@ -4,10 +4,10 @@
     ViewData["Title"] = "Product Details";
 }
 
-<h1>Product Details</h1>
+<h1 style="color:white;font-size:40px;text-align:center; font-family: Segoe Print" sans-serif;">Product Details</h1>
 
-<div>
-    <h4>Product</h4>
+<div style="color:white; font-size:30px;">
+    <h4 style="color:white; font-size:25px;">Product</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -54,8 +54,7 @@
         </dd>
     </dl>
 </div>
-<div>
-    
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit </a> |
-    <a asp-action="Index">Back to List</a>
+<div class="form-group">
+    <a style="border:none;padding:10px 10px;font-size:18px;height:50%;background:linear-gradient(45deg,#f2ff97, #9ed79a);color:#f59159;border-radius:100px;text-align:center;width:30%; margin:25px;cursor:point;font-family: Segoe Print" sans-serif;"" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+    <a style="color:white;border:none;font-size:20px;float:right;width:20%;text-align:center;text-transform:uppercase;cursor:pointer ;font-family: Segoe Print" sans-serif;" asp-action="Index">Back to List</a>
 </div>

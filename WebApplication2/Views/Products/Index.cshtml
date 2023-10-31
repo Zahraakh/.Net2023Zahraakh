@@ -2,20 +2,32 @@
 @{
     ViewData["Title"] = "Products";
 }
-<h1 class="display-4 pb-5">All Products</h1>
 
-<h2>Search Results</h2>
+
+<div >
+<h1 class="display-4 pb-5" style="color:white;  ">All Products</h1>
+
+<h2 style="color:white">Search Results</h2>
 <div class="justify-content-end">
     <form asp-controller="Products" asp-action="Search" method="get">
 
-        <span><b>Search By: </b></span>&nbsp;
-        @Html.RadioButton("searchBy","Name") Product Name
-        &nbsp;
-        @Html.RadioButton("searchBy","Price") Price
-        &nbsp;
-        <input type="text" @* name="searchValue" *@ name="query" placeholder="Search...">
+        <span><b style="color:white;font-size:25px;">Search By: </b></span>&nbsp;
 
-        <button class="btn btn-primary" type="submit">Search</button>
+            <input style="border:none;background:transparent;width:60%;border:2px solid rgba(255, 255, 255, .2);transition: background .5s;color:white ;padding: 0 2rem; height:50px;text-align: center ;border-radius: 100px;" type="text" @* name="searchValue" *@ name="query" placeholder="Search...">
+
+            <button style="border:none; background:linear-gradient(45deg,#ff9933, #999933);
+font-family: Segoe Print" sans-serif;
+padding:1rem;
+border-radius:100px;
+text-align:center;
+text-transform:uppercase;
+font-size:18px;
+height:700px;
+width:700px;
+                cursor:pointer;" class="btn btn-primary" type="submit">
+            Search
+        </button>
+        
 
 
     </form>
@@ -27,7 +39,7 @@
 
     @foreach(var item in Model)
     {
-      <div class="col-4">
+            <div class="col-4">
           <div class="ajaxbg d-none">
               <img src="~/images/ajax-loader.gif" />
               <p class="lead alert alert-success text-center d-none"> The product has been added!</p>
@@ -43,8 +55,8 @@
               @item.Price.ToString("C2")
           </p>
           <p>
-              <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id"
-              class="btn btn-primary addToCart"> Add to cart</a>
+                        <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id" style=" background-image:linear-gradient(to right,#c2e59c 0%, #64b3f4 51%, #c2e59c 100%);" class="btn btn-primary addToCart"> Add to cart</a>
+                        
           </p>
           </div>
 
@@ -64,6 +76,9 @@
         </div>
     }
 
+ </div>
+
+    
 </div>
 
 @section Scripts{

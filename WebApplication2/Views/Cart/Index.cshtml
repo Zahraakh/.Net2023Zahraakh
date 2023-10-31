@@ -8,14 +8,14 @@
 
 @if (Model.CartItems.Count > 0)
 {
-    <h1>Cart Overview</h1>
+    <h1 style="color:white">Cart Overview</h1>
 
     <div class="CartWrapper ">
         <div class="cartbg d-none">
             <h3 class="text-center">Redirecting you to paypal...</h3>
             <img src="~/images/ajax-loader.gif" />
         </div>
-     <table class="table">
+        <table style="color:white;" class="table">
         <tr>
             <th>Product</th>
             <th>Quantity</th>
@@ -31,9 +31,9 @@
                 <td>@item.ProductName</td>
                 <td>@item.Quantity</td>
                 <td>
-                    <a asp-action="Add" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">+</a>
-                    <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">-</a>
-                    <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Remove</a>
+                        <a asp-action="Add" style="background-color:#f15f79" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">+</a>
+                        <a asp-action="Decrease" style="background-color:#c2e59c" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">-</a>
+                        <a asp-action="Remove" style="background-color:#ff9933" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Remove</a>
                 </td>
                 <td>@item.Price.ToString("C2")</td>
                 <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
@@ -48,8 +48,8 @@
         </tr>
         <tr>
            <td class="text-right" colspan="4">
-               <a asp-action="Clear" class="btn btn-danger">Clear Cart</a>
-                <a href="#" class="btn btn-primary checkout">Checkout</a>
+                    <a asp-action="Clear" style="background-color:#ff9933" class="btn btn-danger">Clear Cart</a>
+                    <a href="#" style="background-color:#64b3f4;" class="btn btn-primary checkout">Checkout</a>
            </td>
         </tr>
      </table>
@@ -59,6 +59,30 @@ else
 {
     <h3 class="display-4 text-center">Your cart is empty.</h3>
 }
+<div>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rateModal">
+        Rate Us
+    </button>
+</div>
+
+<div class="modal fade" id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rateModalLabel">Rate Content</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/RateContent" method="post">
+                     <input type="hidden" name="contentId" value="123" /> 
+                    <label for="rating">Rating:</label>
+                    <input type="number" name="rating" min="1" max="5" />
+                    <button type="submit" asp-controller="Cart" asp-action="RateContent">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <partial name="~/Views/Cart/_PaypalPartial.cshtml" for="CartItems"  />
 

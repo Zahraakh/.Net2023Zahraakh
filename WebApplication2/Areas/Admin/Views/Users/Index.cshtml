@@ -4,18 +4,13 @@
     ViewData["Title"] = "Users";
 }
 
-<h1>Users</h1>
+<h1 style="font-size:30px;text-align:center;color:#ffea66;font-family: Segoe Print" sans-serif;">Users</h1>
 
 
-<table class="table">
+<table style="color:white; font-size:20px;font-family: Segoe Print" sans-serif;" class="table">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Username
-            </th>
+            
             <th>
                 Email
             </th>
@@ -24,9 +19,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @item.Id
-            </td>
+            
             <td>
                 @item.UserName
             </td>

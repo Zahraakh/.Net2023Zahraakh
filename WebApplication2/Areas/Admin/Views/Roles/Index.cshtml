@@ -4,17 +4,24 @@
     ViewData["Title"] = "Roles";
 }
 
-<h1>Roles</h1>
+<h1 style="font-size:30px;text-align:center;color:#f59159;font-family: Segoe Print" sans-serif;">Roles</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a style="border:none; background:linear-gradient(45deg,#ffea66, #f59159);
+color:white;
+padding:0.7rem;
+border-radius:100px;
+text-align:center;
+text-transform:uppercase;
+font-size:18px;
+height:55px;
+width:150px;
+cursor:pointer;" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table style="color:white; font-size:20px;font-family: Segoe Print" sans-serif;" class="table">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
+            
             <th>
                 Role
             </th>
@@ -29,9 +36,7 @@
         {
             <tr>
 
-                <td>
-                    @role.Id
-                </td>
+                
                 <td>
                     @role.Name
                 </td>
@@ -39,8 +44,26 @@
                 </td>
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@role.Id">Edit </a> |
-                    <a class="confirmDeletion" asp-action="Delete" asp-route-id="@role.Id"> Delete </a>
+                    <a style="border:none; background:linear-gradient(45deg,#ff6f3c, #f1ffab);
+
+padding:0.5rem;
+border-radius:70px;
+text-align:center;
+text-transform:uppercase;
+font-size:18px;
+height:55px;
+width:150px;
+cursor:pointer;color:white ;font-family: Segoe Print" sans-serif;" asp-action="Edit" asp-route-id="@role.Id">Edit </a> |
+                    <a style="border:none; background:linear-gradient(45deg,#f2ff97, #ff6f3c);
+
+padding:0.5rem;
+border-radius:70px;
+text-align:center;
+text-transform:uppercase;
+font-size:18px;
+height:55px;
+width:150px;
+cursor:pointer;color:white;font-family: Segoe Print" sans-serif;" class="confirmDeletion" asp-action="Delete" asp-route-id="@role.Id"> Delete </a>
                    
 
                 </td>

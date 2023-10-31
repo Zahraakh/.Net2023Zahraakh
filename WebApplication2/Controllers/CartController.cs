@@ -127,5 +127,24 @@ namespace CmsShoppingCart.Controllers
             return Ok();
 
         }
-    }
+
+        [HttpPost]
+        public IActionResult RateContent(int rating)
+        {
+            // Implement authentication to get the current user's ID
+           // var userId = @ViewBag().AppUser;
+
+             //Save the rating to the database
+            var newRate = new Rate
+            {
+               // ContentId = contentId,
+                // UserId = userId,
+                RatingValue = rating
+            };
+
+            context.Rates.Add(newRate);
+            context.SaveChanges();
+            return RedirectToAction("Index", TempData["Success"] = "Thanks for your feedback!");
+        }
+        }
 }

@@ -4,30 +4,70 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
+<h1 style="font-family: Segoe Print" sans-serif;">Register</h1>
 
 
-<div class="row">
-    <div class="col-md-10">
+<div style=" padding: 0;
+    margin: 0;
+    font-family: Segoe Print" sans-serif;
+     background: linear-gradient(45deg,#131086,#b621f3 );
+     padding:40px;" class="row">
+    <div style="  min-height: calc(100vh - 40px * 2);
+         display: grid;
+         grid-template-columns: 50% 50% ;
+         border-radius: 10px;
+         overflow:hidden;" class="col-md-10">
         <form asp-action="Register">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label">UserName</label>
-                <input asp-for="UserName" class="form-control" />
+                <input style=" border: 1px solid black;
+    height:55px;
+    padding: 0 2rem;
+    width:100%;
+    outline:none;
+    transition: background .5s;
+    font-size: 18px;
+    border-radius: 100px;" asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input style=" border: 1px solid black;
+    height:55px;
+    padding: 0 2rem;
+    width:100%;
+    outline:none;
+    transition: background .5s;
+    font-size: 18px;
+    border-radius: 100px;" asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input style=" border: 1px solid black;
+    height:55px;
+    padding: 0 2rem;
+    width:100%;
+    outline:none;
+    transition: background .5s;
+    font-size: 18px;
+    border-radius: 100px;" asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button style="border:none; background:linear-gradient(45deg,#f15f79, #b24592);
+color:#ffea66;
+padding:1rem;
+border-radius:100px;
+text-align:center;
+text-transform:uppercase;
+font-size:18px;
+height:55px;
+width:150px;
+cursor:pointer;" type="submit" value="Create">
+                    Register
+                </button>
             </div>
         </form>
     </div>

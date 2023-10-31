@@ -1,20 +1,26 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-:root{
-    --green:#27ae60;
-    --black:#192a56;
-    --light-color:#666;
-    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    font-family: Segoe Print" sans-serif;";
+  
+
 }
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    text-decoration:none;
-    outline:none;
-    border:none;
-    text-transform:capitalize;
-    transition:all .2s linear;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    font-family: Segoe Print" sans-serif;";
+    
+   
 }
 /*
 
@@ -48,26 +54,30 @@ header .logo{
 
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    background-image: url(background.jpg);
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
+    font-family: Segoe Print" sans-serif;"
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    font-family: Segoe Print" sans-serif;"
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    font-family: Segoe Print" sans-serif;"
 }
 
 /* Sticky footer styles
@@ -105,6 +115,7 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+ 
 }
 
 body {
@@ -195,4 +206,8 @@ li.nav-item.logout{
     top: 10px;
     right: 10px;
     list-style:none;
+    height:20px;
+    width: 30px;
 }
+
+
